@@ -2,48 +2,35 @@ package com.julianavecchi.peoplemanagementapi.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table(name = "tb_person")
+@Table(name = "person")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class PersonModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Long id;
+
     private String name;
+
+    @Column(unique = true)
     private String email;
-    private Integer age;
 
-    public PersonModel() {
-    }
+    @Column(name = "birth_date")
+    private LocalDateTime birthDate;
 
-    public PersonModel(String name, String email, Integer age) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
-    }
+    //ManyToOne = uma pessoa posssui apenas um jogo favorito
+    @ManyToOne
+    @JoinColumn(name = "favorite_game_id")
+    private GameModel favoriteGame;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 }

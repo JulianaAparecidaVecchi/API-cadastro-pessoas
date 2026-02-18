@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.julianavecchi</groupId>
-	<artifactId>API-cadastro-pessoas</artifactId>
+	<artifactId>people-management-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>API-cadastro-pessoas</name>
 	<description>API para cadastro de pessoas.</description>
@@ -49,6 +49,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 	</dependencies>
