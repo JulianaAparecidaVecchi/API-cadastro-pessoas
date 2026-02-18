@@ -1,10 +1,10 @@
-package com.julianavecchi.API_cadastro_pessoas;
+package com.julianavecchi.peoplemanagementapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiCadastroPessoasApplicationTests {
+class PeopleManagementApiApplicationTests {
 
 	@Test
 	void contextLoads() {

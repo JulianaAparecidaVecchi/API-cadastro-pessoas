@@ -1,4 +1,4 @@
-package com.julianavecchi.API_cadastro_pessoas.model;
+package com.julianavecchi.peoplemanagementapi.model;
 
 
 import jakarta.persistence.*;

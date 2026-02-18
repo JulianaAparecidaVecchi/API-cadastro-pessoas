@@ -1,4 +1,4 @@
-package com.julianavecchi.API_cadastro_pessoas.controller;
+package com.julianavecchi.peoplemanagementapi.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

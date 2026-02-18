@@ -1,13 +1,13 @@
-package com.julianavecchi.API_cadastro_pessoas;
+package com.julianavecchi.peoplemanagementapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiCadastroPessoasApplication {
+public class PeopleManagementApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiCadastroPessoasApplication.class, args);
+		SpringApplication.run(PeopleManagementApiApplication.class, args);
 	}
 
 }
