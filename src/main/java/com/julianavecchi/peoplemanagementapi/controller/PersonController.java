@@ -10,6 +10,6 @@ public class PersonController {
 
     @GetMapping("/HelloWorld")
     public String HellowWorld(){
-        return "Essa é minha primeira mensagem nessa rota.";
+        return "Essa é minha primeira mensagem nessa rota! :)";
     }
 }

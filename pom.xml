@@ -11,7 +11,7 @@
 	<groupId>com.julianavecchi</groupId>
 	<artifactId>people-management-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>API-cadastro-pessoas</name>
+	<name>people-management-api</name>
 	<description>API para cadastro de pessoas.</description>
 	<url/>
 	<licenses>
@@ -55,6 +55,11 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-h2console</artifactId>
 		</dependency>
 
 	</dependencies>
