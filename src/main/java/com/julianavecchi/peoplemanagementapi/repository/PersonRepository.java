@@ -1,4 +1,7 @@
 package com.julianavecchi.peoplemanagementapi.repository;
 
-public class PersonRepository {
+import com.julianavecchi.peoplemanagementapi.model.PersonModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PersonRepository extends JpaRepository<PersonModel, Long> {
 }

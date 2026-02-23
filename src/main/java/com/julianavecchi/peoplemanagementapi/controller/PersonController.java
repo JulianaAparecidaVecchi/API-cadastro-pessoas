@@ -1,15 +1,37 @@
 package com.julianavecchi.peoplemanagementapi.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.julianavecchi.peoplemanagementapi.model.PersonModel;
+import com.julianavecchi.peoplemanagementapi.service.PersonService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("person")
 public class PersonController {
 
-    @GetMapping("/HelloWorld")
-    public String HellowWorld(){
-        return "Essa é minha primeira mensagem nessa rota! :)";
+    private PersonService personService;
+
+    public PersonController(PersonService personService){
+        this.personService = personService;
+    }
+
+    @PostMapping("/add")
+    public String AddPerson(){
+        return "Pessoa adicionada com sucesso!";
+    }
+    @GetMapping("/all")
+    public List<PersonModel> ShowAllPeople(){
+        return personService.ShowAllPeople();
+    }
+
+    @PutMapping("/update")
+    public String UpdatePerson(){
+        return "Pessoa atualizada com sucesso!";
+    }
+
+    @DeleteMapping("/delete")
+    public String DeletePerson(){
+        return "Pessoa deletada com sucesso!";
     }
 }
