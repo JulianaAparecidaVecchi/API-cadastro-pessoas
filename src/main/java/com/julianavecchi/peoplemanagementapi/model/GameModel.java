@@ -1,5 +1,6 @@
 package com.julianavecchi.peoplemanagementapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.julianavecchi.peoplemanagementapi.model.enums.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class GameModel {
 
     //OneToMany = Um jogo pode ser favorito de várias pessoas
     @OneToMany(mappedBy = "favoriteGame")
+    @JsonIgnore
     private List<PersonModel> people;
 
 }
