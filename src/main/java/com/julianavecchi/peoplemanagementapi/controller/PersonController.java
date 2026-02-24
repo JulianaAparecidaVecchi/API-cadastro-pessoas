@@ -17,9 +17,10 @@ public class PersonController {
     }
 
     @PostMapping("/add")
-    public String AddPerson(){
-        return "Pessoa adicionada com sucesso!";
+    public PersonModel AddPerson(@RequestBody PersonModel person){
+        return personService.AddPerson(person);
     }
+
     @GetMapping("/list")
     public List<PersonModel> ShowAllPeople(){
         return personService.ShowAllPeople();
