@@ -20,9 +20,14 @@ public class PersonController {
     public String AddPerson(){
         return "Pessoa adicionada com sucesso!";
     }
-    @GetMapping("/all")
+    @GetMapping("/list")
     public List<PersonModel> ShowAllPeople(){
         return personService.ShowAllPeople();
+    }
+
+    @GetMapping("/list/{id}")
+    public PersonModel ShowIdPerson(@PathVariable Long id){
+        return personService.ShowIdPerson(id);
     }
 
     @PutMapping("/update")

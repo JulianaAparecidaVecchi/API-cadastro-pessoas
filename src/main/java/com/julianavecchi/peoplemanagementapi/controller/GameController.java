@@ -11,7 +11,7 @@ public class GameController {
         return "Jogo adicionado com sucesso!";
     }
 
-    @GetMapping("/all")
+    @GetMapping("/list")
     public String ShowAllGame(){
         return "Jogos listados com sucesso!";
     }
