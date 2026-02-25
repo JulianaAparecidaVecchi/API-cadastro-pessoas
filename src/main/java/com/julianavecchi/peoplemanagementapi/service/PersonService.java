@@ -29,4 +29,10 @@ public class PersonService {
     public PersonModel AddPerson(PersonModel person){
         return personRepository.save(person);
     }
+
+    public void DeletePerson(Long id){
+        personRepository.deleteById(id);
+    }
+
+
 }

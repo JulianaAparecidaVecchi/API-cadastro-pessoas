@@ -36,8 +36,8 @@ public class PersonController {
         return "Pessoa atualizada com sucesso!";
     }
 
-    @DeleteMapping("/delete")
-    public String DeletePerson(){
-        return "Pessoa deletada com sucesso!";
+    @DeleteMapping("/delete/{id}")
+    public void DeletePerson(@PathVariable Long id){
+        personService.DeletePerson(id);
     }
 }
