@@ -31,10 +31,11 @@ public class PersonController {
         return personService.ShowIdPerson(id);
     }
 
-    @PutMapping("/update")
-    public String UpdatePerson(){
-        return "Pessoa atualizada com sucesso!";
+    @PutMapping("/update/{id}")
+    public PersonModel UpdatePerson(@PathVariable Long id, @RequestBody PersonModel person){
+        return personService.UpdatePerson(id, person);
     }
+
 
     @DeleteMapping("/delete/{id}")
     public void DeletePerson(@PathVariable Long id){

@@ -34,5 +34,11 @@ public class PersonService {
         personRepository.deleteById(id);
     }
 
-
+    public PersonModel UpdatePerson(Long id, PersonModel personModel){
+        if(personRepository.existsById(id)){
+            personModel.setId(id);
+            return personRepository.save(personModel);
+        }
+        return null;
+    }
 }
