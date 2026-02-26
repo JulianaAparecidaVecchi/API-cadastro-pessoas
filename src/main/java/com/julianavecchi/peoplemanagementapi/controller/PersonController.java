@@ -1,5 +1,7 @@
 package com.julianavecchi.peoplemanagementapi.controller;
 
+import com.julianavecchi.peoplemanagementapi.dto.PersonDTO;
+import com.julianavecchi.peoplemanagementapi.mapper.PersonMapper;
 import com.julianavecchi.peoplemanagementapi.model.PersonModel;
 import com.julianavecchi.peoplemanagementapi.service.PersonService;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,7 @@ public class PersonController {
     }
 
     @PostMapping("/add")
-    public PersonModel AddPerson(@RequestBody PersonModel person){
+    public PersonDTO AddPerson(@RequestBody PersonDTO person){
         return personService.AddPerson(person);
     }
 

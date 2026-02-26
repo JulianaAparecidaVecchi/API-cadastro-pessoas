@@ -1,5 +1,7 @@
 package com.julianavecchi.peoplemanagementapi.service;
 
+import com.julianavecchi.peoplemanagementapi.dto.PersonDTO;
+import com.julianavecchi.peoplemanagementapi.mapper.PersonMapper;
 import com.julianavecchi.peoplemanagementapi.model.PersonModel;
 import com.julianavecchi.peoplemanagementapi.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +14,11 @@ import java.util.Optional;
 public class PersonService {
     @Autowired
     private PersonRepository personRepository;
+    private PersonMapper personMapper;
 
-    public PersonService(PersonRepository personRepository) {
+    public PersonService(PersonRepository personRepository, PersonMapper personMapper) {
         this.personRepository = personRepository;
+        this.personMapper = personMapper;
     }
 
     public List<PersonModel> ShowAllPeople(){
@@ -26,8 +30,10 @@ public class PersonService {
         return personId.orElse(null);
     }
 
-    public PersonModel AddPerson(PersonModel person){
-        return personRepository.save(person);
+    public PersonDTO AddPerson(PersonDTO personDTO){
+        PersonModel person = personMapper.map(personDTO);
+        person = personRepository.save(person);
+        return personMapper.map(person);
     }
 
     public void DeletePerson(Long id){
