@@ -24,17 +24,17 @@ public class PersonController {
     }
 
     @GetMapping("/list")
-    public List<PersonModel> ShowAllPeople(){
+    public List<PersonDTO> ShowAllPeople(){
         return personService.ShowAllPeople();
     }
 
     @GetMapping("/list/{id}")
-    public PersonModel ShowIdPerson(@PathVariable Long id){
+    public PersonDTO ShowIdPerson(@PathVariable Long id){
         return personService.ShowIdPerson(id);
     }
 
     @PutMapping("/update/{id}")
-    public PersonModel UpdatePerson(@PathVariable Long id, @RequestBody PersonModel person){
+    public PersonDTO UpdatePerson(@PathVariable Long id, @RequestBody PersonDTO person){
         return personService.UpdatePerson(id, person);
     }
 
