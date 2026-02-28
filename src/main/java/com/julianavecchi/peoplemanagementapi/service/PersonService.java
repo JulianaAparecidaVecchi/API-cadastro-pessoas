@@ -4,7 +4,6 @@ import com.julianavecchi.peoplemanagementapi.dto.PersonDTO;
 import com.julianavecchi.peoplemanagementapi.mapper.PersonMapper;
 import com.julianavecchi.peoplemanagementapi.model.PersonModel;
 import com.julianavecchi.peoplemanagementapi.repository.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
