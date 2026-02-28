@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class PersonService {
-    @Autowired
+
     private final PersonRepository personRepository;
     private final PersonMapper personMapper;
 
