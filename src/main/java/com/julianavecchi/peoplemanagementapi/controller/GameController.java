@@ -1,28 +1,69 @@
 package com.julianavecchi.peoplemanagementapi.controller;
 
+import com.julianavecchi.peoplemanagementapi.dto.GameDTO;
+import com.julianavecchi.peoplemanagementapi.service.GameService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("game")
 public class GameController {
 
+    private final GameService gameService;
+
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
+    }
+
     @PostMapping("/add")
-    public String AddGame(){
-        return "Jogo adicionado com sucesso!";
+    public ResponseEntity<String> AddGame(@RequestBody GameDTO game){
+        GameDTO gameDTO = gameService.AddGame(game);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("Jogo criado com sucesso! " + gameDTO.getName() + " ID: " + gameDTO.getId());
     }
 
     @GetMapping("/list")
-    public String ShowAllGame(){
-        return "Jogos listados com sucesso!";
+    public ResponseEntity<List<GameDTO>> ShowAllGame(){
+        List<GameDTO>  listGames =  gameService.ShowAllGame();
+        return ResponseEntity.ok(listGames);
     }
 
-    @PutMapping("/update")
-    public String UpdateGame(){
-        return "Jogo atualizado com sucesso!";
+    @GetMapping("/list/{id}")
+    public ResponseEntity<?> ShowIdGame(@PathVariable Long id){
+        if(gameService.ShowIdGame(id) != null){
+            GameDTO game = gameService.ShowIdGame(id);
+            return ResponseEntity.ok(game);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Jogo com ID: " + id + " não foi encontrado.");
+        }
+
     }
 
-    @DeleteMapping("/delete")
-    public String DeleteGame(){
-        return "Jogo deletado com sucesso!";
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> UpdateGame(@PathVariable Long id, @RequestBody GameDTO game){
+        if(gameService.ShowIdGame(id) != null){
+            gameService.UpdateGame(id, game);
+            return ResponseEntity.ok("O jogo de ID: " + id + " foi atualizado com sucesso!");
+        } else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Jogo com ID: " + id + " não foi encontrado.");
+        }
+    }
+
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> DeleteGame(@PathVariable Long id){
+        if(gameService.ShowIdGame(id) != null){
+            gameService.DeleteGame(id);
+            return ResponseEntity.ok("Jogo com ID: " + id + " deletado com sucesso!");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Jogo com ID: " + id + " não foi encontrado.");
+        }
+
     }
 }
