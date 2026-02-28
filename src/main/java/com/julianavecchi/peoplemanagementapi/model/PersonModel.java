@@ -28,6 +28,9 @@ public class PersonModel {
     @Column(name = "birth_date")
     private LocalDateTime birthDate;
 
+    @Column(name = "mother_name")
+    private String motherName;
+
     //ManyToOne = uma pessoa posssui apenas um jogo favorito
     @ManyToOne
     @JoinColumn(name = "favorite_game_id")

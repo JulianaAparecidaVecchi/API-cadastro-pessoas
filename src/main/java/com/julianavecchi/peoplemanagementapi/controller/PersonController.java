@@ -1,5 +1,7 @@
 package com.julianavecchi.peoplemanagementapi.controller;
 
+import com.julianavecchi.peoplemanagementapi.dto.PersonDTO;
+import com.julianavecchi.peoplemanagementapi.mapper.PersonMapper;
 import com.julianavecchi.peoplemanagementapi.model.PersonModel;
 import com.julianavecchi.peoplemanagementapi.service.PersonService;
 import org.springframework.web.bind.annotation.*;
@@ -17,22 +19,22 @@ public class PersonController {
     }
 
     @PostMapping("/add")
-    public PersonModel AddPerson(@RequestBody PersonModel person){
+    public PersonDTO AddPerson(@RequestBody PersonDTO person){
         return personService.AddPerson(person);
     }
 
     @GetMapping("/list")
-    public List<PersonModel> ShowAllPeople(){
+    public List<PersonDTO> ShowAllPeople(){
         return personService.ShowAllPeople();
     }
 
     @GetMapping("/list/{id}")
-    public PersonModel ShowIdPerson(@PathVariable Long id){
+    public PersonDTO ShowIdPerson(@PathVariable Long id){
         return personService.ShowIdPerson(id);
     }
 
     @PutMapping("/update/{id}")
-    public PersonModel UpdatePerson(@PathVariable Long id, @RequestBody PersonModel person){
+    public PersonDTO UpdatePerson(@PathVariable Long id, @RequestBody PersonDTO person){
         return personService.UpdatePerson(id, person);
     }
 
